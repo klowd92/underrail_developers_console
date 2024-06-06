@@ -1,5 +1,6 @@
 using Mono.Cecil;
 using Mono.Cecil.Cil;
+using System.Security.Cryptography;
 
 /*
  	public void foobar()
@@ -26,26 +27,80 @@ namespace ConsoleApp
 {
     internal class Program
     {
+        Int32 resWidth;
+        Int32 resHeight;
+        string path;
+        string md5sum = "7f3d091d590e0d2faebf2de81756597b";
+
         static void Main(string[] args)
         {
-            Int32 resWidth = 1920;
-            Int32 resHeight = 1080;
+            Program patcher = new Program();
+            patcher.GetUserInput();
+            patcher.CheckVersion();
+            patcher.PatchGame();
+        }
 
+        void CheckVersion()
+        {
+            using (var md5 = MD5.Create())
+            {
+                using (var stream = File.OpenRead(path))
+                {
+                    var hash = md5.ComputeHash(stream);
+                    if (md5sum != BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant())
+                    {
+                        Console.WriteLine("This patcher only works for Underrail.exe (version 1.20.0.16)");
+                        Environment.Exit(1);
+                    }
+                }
+            }
+        }
+
+        void GetUserInput()
+        {
             Console.WriteLine("This program will patch Underail 1.20.0.16 to enable the developers console using ~ (tilde) key");
             Console.WriteLine("This program cannot harm your computer or the integrity of your files (even in error/crash)");
             Console.WriteLine("Output is saved to a different file");
             Console.WriteLine();
             Console.WriteLine("Input your game resolution (My default 1920 x 1080)");
 
-            Console.WriteLine("Width (e.g. 1920): ");
-            resWidth = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Height (e.g. 1080): ");
-            resHeight = Convert.ToInt32(Console.ReadLine());
+            string input;
+
+            Console.WriteLine("Width (default 1920): ");
+            input = Console.ReadLine();
+            if (String.IsNullOrEmpty(input))
+                resWidth = 1920;
+            else
+                resWidth = Convert.ToInt32(input);
+
+            Console.WriteLine("Height (default 1080): ");
+            input = Console.ReadLine();
+            if (String.IsNullOrEmpty(input))
+                resHeight = 1080;
+            else
+                resHeight = Convert.ToInt32(input);
+
+            Console.WriteLine($"Configured Resolution: {resWidth} x {resHeight}");
+            Console.WriteLine();
             resHeight = Convert.ToInt32((resHeight * 0.75));
 
-            ModuleDefinition module = ModuleDefinition.ReadModule("C:\\Program Files (x86)\\GOG Galaxy\\Games\\UnderRail\\underrail.exe");
+            Console.WriteLine("Input full path to underrail.exe");
+            Console.WriteLine("Default: C:\\Program Files (x86)\\GOG Galaxy\\Games\\UnderRail\\underrail.exe");
+            input = Console.ReadLine();
+            if (String.IsNullOrEmpty(input))
+                path = "C:\\Program Files (x86)\\GOG Galaxy\\Games\\UnderRail\\underrail.exe";
+            else
+                path = input;
+
+            Console.WriteLine();
+            Console.WriteLine($"Attempting to read {path}");
+
+        }
+
+        void PatchGame()
+        {
+            ModuleDefinition module = ModuleDefinition.ReadModule(path);
             AssemblyDefinition netXnaAssembly = default(AssemblyDefinition);
-            AssemblyDefinition netXnaInputAssembly = default(AssemblyDefinition);
 
             DefaultAssemblyResolver resolver = new DefaultAssemblyResolver();
 
@@ -62,6 +117,7 @@ namespace ConsoleApp
                 }
             }
 
+            // Unused
             MethodDefinition method_a2t_a = module.Types
               .Where(t => t.Name == "a2t")
               .SelectMany(t => t.Methods)
@@ -150,6 +206,8 @@ namespace ConsoleApp
 
             // var origInstanceField = type.Fields.First(fld => fld.Name.Equals("_original"));
 
+            // Add .NET code which enables the developer console
+
             var enableConsole = new MethodDefinition("foobar", MethodAttributes.Public, module.TypeSystem.Void);
             var ilProcessor = enableConsole.Body.GetILProcessor();
 
@@ -205,16 +263,21 @@ namespace ConsoleApp
               .First();
 
 
-            ilProcessor = method_djn_a.Body.GetILProcessor();
-            // foreach (var instruction in method.Body.Instructions)
-                // Console.WriteLine($"{instruction.OpCode} \"{instruction.Operand}\"");
+            // Add .NET code which checks for ~ (tilde) key press
 
-            //Console.WriteLine($"{ilProcessor.Body.Instructions[45]}");
-            //Console.WriteLine($"{ilProcessor.Body.Instructions[46]}");
-            //Console.WriteLine($"{ilProcessor.Body.Instructions[47]}");
-            //Console.WriteLine($"{ilProcessor.Body.Instructions[48]}");
-            //Console.WriteLine($"{ilProcessor.Body.Instructions[49]}");
-            //Console.WriteLine($"{ilProcessor.Body.Instructions[50]}");
+            ilProcessor = method_djn_a.Body.GetILProcessor();
+
+            /*
+             foreach (var instruction in method.Body.Instructions)
+                 Console.WriteLine($"{instruction.OpCode} \"{instruction.Operand}\"");
+
+            Console.WriteLine($"{ilProcessor.Body.Instructions[45]}");
+            Console.WriteLine($"{ilProcessor.Body.Instructions[46]}");
+            Console.WriteLine($"{ilProcessor.Body.Instructions[47]}");
+            Console.WriteLine($"{ilProcessor.Body.Instructions[48]}");
+            Console.WriteLine($"{ilProcessor.Body.Instructions[49]}");
+            Console.WriteLine($"{ilProcessor.Body.Instructions[50]}");
+            */
 
             Int32 index = 49;
             var start_check = ilProcessor.Create(OpCodes.Ldarg_2);
@@ -230,9 +293,15 @@ namespace ConsoleApp
 
             ilProcessor.Replace(46, Instruction.Create(OpCodes.Bne_Un, start_check));
 
-            module.Write("C:\\Program Files (x86)\\GOG Galaxy\\Games\\UnderRail\\underrail_console_enabled.exe");
 
-            Console.WriteLine("Game has been successfully patched and saved to: underrail_console_enabled.exe");
+            string outPath = Path.GetDirectoryName(path) + "\\" + "underrail_console_enabled.exe";
+            module.Write(outPath);
+
+            Console.WriteLine();
+            Console.WriteLine("Game has been successfully patched and saved to:");
+            Console.WriteLine($"{outPath}");
+
+            Console.WriteLine("\nGoodBye!\n");
         }
     }
 }
