@@ -24,9 +24,9 @@ C:\Program Files (x86)\GOG Galaxy\Games\UnderRail\underrail_console_enabled.exe
 GoodBye!
 ```
 ## Installation
-Requires .NET 8 framework  
+Requires .NET 8 framework (https://dotnet.microsoft.com/en-us/download/dotnet/8.0)   
 Requires Underrail version 1.20.0.16  
-(I suggest to always keep a backup of Underrail.exe vresion 1.20.0.16)  
+(I suggest to always keep a backup of Underrail.exe version 1.20.0.16)  
   
 ## Build
 Microsoft Visual Studio with C# and .NET 8 support packages  
