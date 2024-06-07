@@ -24,17 +24,17 @@ C:\Program Files (x86)\GOG Galaxy\Games\UnderRail\underrail_console_enabled.exe
 GoodBye!
 ```
 ## Installation
-Requires .NET 8 framework
-Requires Underrail version 1.20.0.16
-(I suggest to always keep a backup of Underrail.exe vresion 1.20.0.16)
+Requires .NET 8 framework  
+Requires Underrail version 1.20.0.16  
+(I suggest to always keep a backup of Underrail.exe vresion 1.20.0.16)  
 
 ## Build
-Microsoft Visual Studio with C# and .NET 8 support packages
-Mono.Cecil packages (install with Nuget)
+Microsoft Visual Studio with C# and .NET 8 support packages  
+Mono.Cecil packages (install with Nuget)  
 
 ### Developers Console Commands 
-Commands have a long name and a few aliased short names.
-I listed the long command name, since it is more descriptive of what the command does.
+Commands have a long name and a few aliased short names.  
+I listed the long command name, since it is more descriptive of what the command does.  
 
 ```sh
 goto <localeId>
