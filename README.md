@@ -31,7 +31,15 @@ Requires Underrail version 1.20.0.16
 ## Build
 Microsoft Visual Studio with C# and .NET 8 support packages  
 Mono.Cecil packages (install with Nuget)  
-  
+
+## Run
+Run UnderrailPatcher.exe and input the required resolution and game path values.
+Defaults are: Width 1920, heigh 1080, path (path to underrail.exe in GOG folder)
+
+The patch will take a few seconds to complete, and create a file in the target folder:
+underrail_console_enabled.exe
+
+## Game
 ### Developers Console Commands  
 Commands have a long name and a few aliased short names.  
 I listed the long command name, since it is more descriptive of what the command does.  
