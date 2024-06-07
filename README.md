@@ -101,7 +101,7 @@ revealGlobalMap
 spawnVisualEffect <effectName>
     svx !cigarsmoke (spawns the cigarsmoke effect)
 spawnEntity <entityPath>
-    se !carnifx (spawns carnifx)
+    se !carnifex (spawns carnifx)
 writeGlobalProperty
     writegp loc_cc_arenaStarted False 
 ```
