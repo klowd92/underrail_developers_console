@@ -84,7 +84,7 @@ namespace ConsoleApp
             Console.WriteLine();
             resHeight = Convert.ToInt32((resHeight * 0.75));
 
-            Console.WriteLine("Input full path to underrail.exe");
+            Console.WriteLine("Input full path to underrail.exe (version 1.20.0.16)");
             Console.WriteLine("Default: C:\\Program Files (x86)\\GOG Galaxy\\Games\\UnderRail\\underrail.exe");
             input = Console.ReadLine();
             if (String.IsNullOrEmpty(input))
