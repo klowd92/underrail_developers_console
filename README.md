@@ -12,7 +12,7 @@ Height (default 1080):
 
 Configured Resolution: 1920 x 1080
 
-Input full path to underrail.exe
+Input full path to underrail.exe (version 1.20.0.16)
 Default: C:\Program Files (x86)\GOG Galaxy\Games\UnderRail\underrail.exe
 
 
