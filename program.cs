@@ -8,16 +8,16 @@ using System.Security.Cryptography;
 		this.an = true
 		if (this.s == null)
 		{
-			ero ero = a2t.a();
-			int num = Convert.ToInt32((double)ero.d * 0.75);
+			ert ert = a2t.a();
+			int num = Convert.ToInt32((double)ert.d * 0.75);
 			if (num % 2 == 1)
 			{
 				num++;
 			}
-			ero ero2 = new ero(ero.c, num);
+			ert ert2 = new ert(ert.c, num);
 			this.ao = 0.0;
-			this.s = new j8(ero2);
-			this.s.Location = new Point(0, -ero2.d);
+			this.s = new j8(ert2);
+			this.s.Location = new Point(0, -ert2.d);
 			this.an7(this.s);
 		}
 	}
@@ -30,8 +30,7 @@ namespace ConsoleApp
         Int32 resWidth;
         Int32 resHeight;
         string path;
-        string md5sum = "7f3d091d590e0d2faebf2de81756597b";
-
+        string md5sum = "a5a65bc7b90a962f1f8085f978abe0ba";
         static void Main(string[] args)
         {
             Program patcher = new Program();
@@ -121,61 +120,62 @@ namespace ConsoleApp
             MethodDefinition method_a2t_a = module.Types
               .Where(t => t.Name == "a2t")
               .SelectMany(t => t.Methods)
-              .Where(m => m.FullName == "ero a2t::a()")
+              .Where(m => m.FullName == "ert a2t::a()")
               .First();
 
-            MethodDefinition method_cil_j = module.Types
-              .Where(t => t.Name == "cil")
+            // Unused
+            MethodDefinition method_cin_j = module.Types
+              .Where(t => t.Name == "cin")
               .SelectMany(t => t.Methods)
-              .Where(m => m.FullName == "System.Void cil::j()")
+              .Where(m => m.FullName == "System.Void cin::j()")
               .First();
 
-            FieldDefinition var_cil_an = module.Types
-              .Where(t => t.Name == "cil")
+            FieldDefinition var_cin_an = module.Types
+              .Where(t => t.Name == "cin")
               .SelectMany(t => t.Fields)
-              .Where(f => f.FullName == "System.Boolean cil::an")
+              .Where(f => f.FullName == "System.Boolean cin::an")
               .First();
 
-            FieldDefinition var_cil_s = module.Types
-              .Where(t => t.Name == "cil")
+            FieldDefinition var_cin_s = module.Types
+              .Where(t => t.Name == "cin")
               .SelectMany(t => t.Fields)
-              .Where(f => f.FullName == "j8 cil::s")
+              .Where(f => f.FullName == "j8 cin::s")
               .First();
 
-            FieldDefinition var_cil_ao = module.Types
-              .Where(t => t.Name == "cil")
+            FieldDefinition var_cin_ao = module.Types
+              .Where(t => t.Name == "cin")
               .SelectMany(t => t.Fields)
-              .Where(f => f.FullName == "System.Double cil::ao")
+              .Where(f => f.FullName == "System.Double cin::ao")
               .First();
 
-            MethodDefinition method_ero_ctor = module.Types
-              .Where(t => t.Name == "ero")
+            MethodDefinition method_ert_ctor = module.Types
+              .Where(t => t.Name == "ert")
               .SelectMany(t => t.Methods)
-              .Where(m => m.FullName == "System.Void ero::.ctor(System.Int32,System.Int32)")
+              .Where(m => m.FullName == "System.Void ert::.ctor(System.Int32,System.Int32)")
               .First();
 
-            FieldDefinition var_ero_d = module.Types
-              .Where(t => t.Name == "ero")
+            FieldDefinition var_ert_d = module.Types
+              .Where(t => t.Name == "ert")
               .SelectMany(t => t.Fields)
-              .Where(f => f.FullName == "System.Int32 ero::d")
+              .Where(f => f.FullName == "System.Int32 ert::d")
               .First();
 
             MethodDefinition method_j8_ctor = module.Types
               .Where(t => t.Name == "j8")
               .SelectMany(t => t.Methods)
-              .Where(m => m.FullName == "System.Void j8::.ctor(ero)")
+              .Where(m => m.FullName == "System.Void j8::.ctor(ert)")
               .First();
 
-            MethodDefinition method_et3_an7 = module.Types
-              .Where(t => t.Name == "et3")
+            MethodDefinition method_et8_an7 = module.Types
+              .Where(t => t.Name == "et8")
               .SelectMany(t => t.Methods)
-              .Where(m => m.FullName == "System.Boolean et3::an7(et3)")
+              .Where(m => m.FullName == "System.Boolean et8::an7(et8)")
               .First();
 
-            MethodDefinition method_et3_g = module.Types
-              .Where(t => t.Name == "et3")
+            MethodDefinition method_et8_g = module.Types
+              .Where(t => t.Name == "et8")
               .SelectMany(t => t.Methods)
-              .Where(m => m.FullName == "System.Void et3::g(Microsoft.Xna.Framework.Point)")
+              .Where(m => m.FullName == "System.Void et8::g(Microsoft.Xna.Framework.Point)")
               .First();
 
             FieldDefinition var_and_a = module.Types
@@ -184,18 +184,18 @@ namespace ConsoleApp
               .Where(f => f.FullName == "Microsoft.Xna.Framework.Input.Keys and::a")
               .First();
 
-            FieldDefinition var_djn_d = module.Types
-              .Where(t => t.Name == "djn")
+            FieldDefinition var_djr_d = module.Types
+              .Where(t => t.Name == "djr")
               .SelectMany(t => t.Fields)
-              .Where(f => f.FullName == "cil djn::d")
+              .Where(f => f.FullName == "cin djr::d")
               .First();
 
-            TypeDefinition type_ero = module.Types
-              .Where(t => t.FullName == "ero")
+            TypeDefinition type_ert = module.Types
+              .Where(t => t.FullName == "ert")
               .First();
 
-            TypeDefinition type_cil = module.Types
-              .Where(t => t.FullName == "cil")
+            TypeDefinition type_cin = module.Types
+              .Where(t => t.FullName == "cin")
               .First();
 
             MethodDefinition method_point_ctor = netXnaAssembly.MainModule.Types
@@ -211,61 +211,61 @@ namespace ConsoleApp
             var enableConsole = new MethodDefinition("foobar", MethodAttributes.Public, module.TypeSystem.Void);
             var ilProcessor = enableConsole.Body.GetILProcessor();
 
-            type_cil.Methods.Add(enableConsole);
+            type_cin.Methods.Add(enableConsole);
 
-            VariableDefinition local_ero = new VariableDefinition(type_ero);
-            enableConsole.Body.Variables.Add(local_ero);
+            VariableDefinition local_ert = new VariableDefinition(type_ert);
+            enableConsole.Body.Variables.Add(local_ert);
 
             ilProcessor.Emit(OpCodes.Ldarg_0);
             ilProcessor.Emit(OpCodes.Ldc_I4_1);
-            ilProcessor.Emit(OpCodes.Stfld, var_cil_an);
+            ilProcessor.Emit(OpCodes.Stfld, var_cin_an);
             ilProcessor.Emit(OpCodes.Ldarg_0);
-            ilProcessor.Emit(OpCodes.Ldfld, var_cil_s);
+            ilProcessor.Emit(OpCodes.Ldfld, var_cin_s);
             var IL_0063 = ilProcessor.Create(OpCodes.Ret);
             ilProcessor.Emit(OpCodes.Brtrue, IL_0063);
-            ilProcessor.Emit(OpCodes.Ldloca_S, local_ero);
+            ilProcessor.Emit(OpCodes.Ldloca_S, local_ert);
             ilProcessor.Emit(OpCodes.Ldc_I4, resWidth);
             ilProcessor.Emit(OpCodes.Ldc_I4, resHeight);
-            ilProcessor.Emit(OpCodes.Call, method_ero_ctor);
+            ilProcessor.Emit(OpCodes.Call, method_ert_ctor);
             ilProcessor.Emit(OpCodes.Ldarg_0);
             ilProcessor.Emit(OpCodes.Ldc_R8, 0.0);
-            ilProcessor.Emit(OpCodes.Stfld, var_cil_ao);
+            ilProcessor.Emit(OpCodes.Stfld, var_cin_ao);
             ilProcessor.Emit(OpCodes.Ldarg_0);
             ilProcessor.Emit(OpCodes.Ldloc_0);
             ilProcessor.Emit(OpCodes.Newobj, method_j8_ctor);
-            ilProcessor.Emit(OpCodes.Stfld, var_cil_s);
+            ilProcessor.Emit(OpCodes.Stfld, var_cin_s);
             ilProcessor.Emit(OpCodes.Ldarg_0);
-            ilProcessor.Emit(OpCodes.Ldfld, var_cil_s);
+            ilProcessor.Emit(OpCodes.Ldfld, var_cin_s);
             ilProcessor.Emit(OpCodes.Ldc_I4_0);
             ilProcessor.Emit(OpCodes.Ldloc_0);
-            ilProcessor.Emit(OpCodes.Ldfld, var_ero_d);
+            ilProcessor.Emit(OpCodes.Ldfld, var_ert_d);
             ilProcessor.Emit(OpCodes.Neg);
             ilProcessor.Emit(OpCodes.Newobj, module.Import(method_point_ctor));
-            ilProcessor.Emit(OpCodes.Callvirt, method_et3_g);
+            ilProcessor.Emit(OpCodes.Callvirt, method_et8_g);
             ilProcessor.Emit(OpCodes.Ldarg_0);
             ilProcessor.Emit(OpCodes.Ldarg_0);
-            ilProcessor.Emit(OpCodes.Ldfld, var_cil_s);
-            ilProcessor.Emit(OpCodes.Callvirt, method_et3_an7);
+            ilProcessor.Emit(OpCodes.Ldfld, var_cin_s);
+            ilProcessor.Emit(OpCodes.Callvirt, method_et8_an7);
             ilProcessor.Emit(OpCodes.Pop);
             ilProcessor.Append(IL_0063);
 
 
-            MethodDefinition method_cil_foobar = module.Types
-              .Where(t => t.Name == "cil")
+            MethodDefinition method_cin_foobar = module.Types
+              .Where(t => t.Name == "cin")
               .SelectMany(t => t.Methods)
-              .Where(m => m.FullName == "System.Void cil::foobar()")
+              .Where(m => m.FullName == "System.Void cin::foobar()")
               .First();
 
-            MethodDefinition method_djn_a = module.Types
-              .Where(t => t.Name == "djn")
+            MethodDefinition method_djr_a = module.Types
+              .Where(t => t.Name == "djr")
               .SelectMany(t => t.Methods)
-              .Where(m => m.FullName == "System.Void djn::a(System.Object,and)")
+              .Where(m => m.FullName == "System.Void djr::a(System.Object,and)")
               .First();
 
 
             // Add .NET code which checks for ~ (tilde) key press
 
-            ilProcessor = method_djn_a.Body.GetILProcessor();
+            ilProcessor = method_djr_a.Body.GetILProcessor();
 
             /*
              foreach (var instruction in method.Body.Instructions)
@@ -287,8 +287,8 @@ namespace ConsoleApp
             var finish_check = ilProcessor.Create(OpCodes.Nop);
             ilProcessor.InsertAfter(index++, Instruction.Create(OpCodes.Bne_Un, finish_check));
             ilProcessor.InsertAfter(index++, Instruction.Create(OpCodes.Ldarg_0));
-            ilProcessor.InsertAfter(index++, Instruction.Create(OpCodes.Ldfld, var_djn_d));
-            ilProcessor.InsertAfter(index++, Instruction.Create(OpCodes.Callvirt, method_cil_foobar));
+            ilProcessor.InsertAfter(index++, Instruction.Create(OpCodes.Ldfld, var_djr_d));
+            ilProcessor.InsertAfter(index++, Instruction.Create(OpCodes.Callvirt, method_cin_foobar));
             ilProcessor.InsertAfter(index++, finish_check);
 
             ilProcessor.Replace(46, Instruction.Create(OpCodes.Bne_Un, start_check));
