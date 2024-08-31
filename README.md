@@ -1,4 +1,4 @@
-# UnderRail Developers Console (Patch for version 1.20.0.16)
+# UnderRail Developers Console (Patch for version 1.20.0.18)
 ## Run (example)
 ```sh
 This program will patch Underail 1.20.0.16 to enable the developers console using ~ (tilde) key
@@ -25,10 +25,14 @@ GoodBye!
 ```
 ## Installation
 Requires .NET 8 framework (https://dotnet.microsoft.com/en-us/download/dotnet/8.0)   
-Requires Underrail version 1.20.0.16  
-(I suggest to always keep a backup of Underrail.exe version 1.20.0.16)  
+Requires Underrail version 1.20.0.18
+(I suggest to always keep a backup of Underrail.exe version 1.20.0.18)  
   
 ## Build
+Automatic
+Using Microsoft Visual Studio, open the UnderrailPatcher.sln
+
+Manually:
 Microsoft Visual Studio with C# and .NET 8 support packages  
 Mono.Cecil packages (install with Nuget)  
 
