@@ -1,7 +1,7 @@
 # UnderRail Developers Console (Patch for version 1.20.0.18)
 ## Run (example)
 ```sh
-This program will patch Underail 1.20.0.16 to enable the developers console using ~ (tilde) key
+This program will patch Underail 1.20.0.18 to enable the developers console using ~ (tilde) key
 This program cannot harm your computer or the integrity of your files (even in error/crash)
 Output is saved to a different file
 
@@ -12,7 +12,7 @@ Height (default 1080):
 
 Configured Resolution: 1920 x 1080
 
-Input full path to underrail.exe (version 1.20.0.16)
+Input full path to underrail.exe (version 1.20.0.18)
 Default: C:\Program Files (x86)\GOG Galaxy\Games\UnderRail\underrail.exe
 
 
