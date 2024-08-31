@@ -48,7 +48,7 @@ namespace ConsoleApp
                     var hash = md5.ComputeHash(stream);
                     if (md5sum != BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant())
                     {
-                        Console.WriteLine("This patcher only works for Underrail.exe (version 1.20.0.18)");
+                        Console.WriteLine("This patcher only works for Underrail.exe (version 1.2.0.18)");
                         Environment.Exit(1);
                     }
                 }
@@ -57,7 +57,7 @@ namespace ConsoleApp
 
         void GetUserInput()
         {
-            Console.WriteLine("This program will patch Underail 1.20.0.18 to enable the developers console using ~ (tilde) key");
+            Console.WriteLine("This program will patch Underail 1.2.0.18 to enable the developers console using ~ (tilde) key");
             Console.WriteLine("This program cannot harm your computer or the integrity of your files (even in error/crash)");
             Console.WriteLine("Output is saved to a different file");
             Console.WriteLine();
@@ -83,7 +83,7 @@ namespace ConsoleApp
             Console.WriteLine();
             resHeight = Convert.ToInt32((resHeight * 0.75));
 
-            Console.WriteLine("Input full path to underrail.exe (version 1.20.0.18)");
+            Console.WriteLine("Input full path to underrail.exe (version 1.2.0.18)");
             Console.WriteLine("Default: C:\\Program Files (x86)\\GOG Galaxy\\Games\\UnderRail\\underrail.exe");
             input = Console.ReadLine();
             if (String.IsNullOrEmpty(input))
