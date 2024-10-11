@@ -49,7 +49,7 @@ namespace ConsoleApp
                     string game_md5sum = BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
                     if (md5sum != game_md5sum)
                     {
-                        Console.WriteLine($"\nExpected game md5sum (version 1.20.0.19): {md5sum}");
+                        Console.WriteLine($"\nExpected game md5sum (version 1.2.0.19): {md5sum}");
                         Console.WriteLine($"Found md5sum: {game_md5sum}");
                         Console.WriteLine("\nThis patcher only works for Underrail.exe (version 1.2.0.19)");
                         while (!Console.KeyAvailable) { }
