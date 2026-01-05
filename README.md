@@ -3,6 +3,13 @@ This program will runtime-patch Underail 1.3.0.17 to enable the developers conso
 
 This program cannot harm your computer or the integrity of your files (even in error/crash)
 
+Note:
+I have tried my best to hook into not only the initialization functions, but also to the cleanup functions.
+Since this patch includes thousands of lines of code, dozens of classes, hooks, injections, etc..
+There could still be some bugs in the console.
+
+I would recommend to keep backup of save files just in case.
+
 ## Run (example)
 ```sh
 
