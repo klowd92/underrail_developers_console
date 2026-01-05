@@ -6,7 +6,9 @@ This program cannot harm your computer or the integrity of your files (even in e
 ## Run (example)
 ```sh
 
-To run, unzip the release folder into your game folder, or simply unzip, and copy all files to your game folder.
+To run, unzip the release folder into your game folder
+(or simply unzip, and copy all files to your game folder)
+
 Default: C:\Program Files (x86)\GOG Galaxy\Games\UnderRail\
 
 So your game folder should contain the files:
