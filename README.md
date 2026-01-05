@@ -1,47 +1,35 @@
-# UnderRail Developers Console (Patch for version 1.2.0.23)
+# UnderRail Developers Console (Patch for version 1.3.0.17)
+This program will runtime-patch Underail 1.3.0.17 to enable the developers console using ~ (tilde) key
+
+This program cannot harm your computer or the integrity of your files (even in error/crash)
+
 ## Run (example)
 ```sh
-This program will patch Underail 1.2.0.23 to enable the developers console using ~ (tilde) key
-This program cannot harm your computer or the integrity of your files (even in error/crash)
-Output is saved to a different file
 
-Input your game resolution (My default 1920 x 1080)
-Width (default 1920):
+To run, unzip the release folder into your game folder
+(or simply unzip, and copy all files to your game folder)
 
-Height (default 1080):
+Default: C:\Program Files (x86)\GOG Galaxy\Games\UnderRail\
 
-Configured Resolution: 1920 x 1080
+So your game folder should contain the files:
+0Harmony.dll
+BepInEx.Core.dll
+BepInEx.NET.Framework.Launcher.exe
+etc..
+BepInEx folder
+etc..
 
-Input full path to underrail.exe (version 1.2.0.23)
-Default: C:\Program Files (x86)\GOG Galaxy\Games\UnderRail\underrail.exe
-
-
-Attempting to read C:\Program Files (x86)\GOG Galaxy\Games\UnderRail\underrail.exe
-
-Game has been successfully patched and saved to:
-C:\Program Files (x86)\GOG Galaxy\Games\UnderRail\underrail_console_enabled.exe
-
-GoodBye!
+Run BepInEx.NET.Framework.Launcher.exe
+Enjoy!
 ```
-## Installation
-Requires .NET 8 framework (https://dotnet.microsoft.com/en-us/download/dotnet/8.0)   
-Requires Underrail version 1.2.0.23
-(I suggest to always keep a backup of Underrail.exe version 1.2.0.23)  
-  
+
 ## Build
 Automatic
 Using Microsoft Visual Studio, open the UnderrailPatcher.sln
 
-Manually:
-Microsoft Visual Studio with C# and .NET 8 support packages  
-Mono.Cecil packages (install with Nuget)  
-
 ## Run
-Run UnderrailPatcher.exe and input the required resolution and game path values.
-Defaults are: Width 1920, heigh 1080, path (path to underrail.exe in GOG folder)
-
-The patch will take a few seconds to complete, and create a file in the target folder:
-underrail_console_enabled.exe
+Run BepInEx.NET.Framework.Launcher.exe
+Defaults console values: Width 1920, heigh 1080
 
 ## Game
 ### Developers Console Commands  
